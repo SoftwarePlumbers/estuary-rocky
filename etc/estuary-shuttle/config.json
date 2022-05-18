@@ -1,0 +1,76 @@
+{
+  "DatabaseConnString": "postgres=host=postgres13 user=estuary password=swallow99 dbname=shuttle",
+  "StagingDataDir": "/data/shuttle/staging",
+  "DataDir": "/data/shuttle",
+  "ApiListen": "10.0.3.8:3005",
+  "AutoRetrieve": false,
+  "Hostname": "https://shuttle1.softwareplumbers.com",
+  "Private": false,
+  "Dev": false,
+  "NoReloadPinQueue": false,
+  "NodeConfig": {
+    "Swarm": [
+      "/ip4/0.0.0.0/tcp/6745",
+      "/ip4/0.0.0.0/udp/6746/quic",
+      "/ip4/0.0.0.0/tcp/6747/ws"
+    ],
+    "Announce": [
+      "/ip4/208.104.26.93/tcp/6745",
+      "/ip4/208.104.26.93/udp/6746/quic",
+      "/ip4/208.104.26.93/tcp/6747/ws"],
+    "BlockstoreDir": "/data/shuttle/blocks",
+    "WriteLogDir": "",
+    "HardFlushWriteLog": false,
+    "WriteLogTruncate": false,
+    "NoBlockstoreCache": false,
+    "NoLimiter": false,
+    "Libp2pKeyFile": "/data/shuttle/peer.key",
+    "DatastoreDir": "/data/shuttle/leveldb",
+    "WalletDir": "/data/shuttle/wallet",
+    "BitswapConfig": {
+      "MaxOutstandingBytesPerPeer": 5242880,
+      "TargetMessageSize": 16384
+    },
+    "LimitsConfig": {
+      "SystemLimitConfig": {
+        "MinMemory": 1073741824,
+        "MaxMemory": 10737418240,
+        "MemoryFraction": 0.2,
+        "StreamsInbound": 65536,
+        "StreamsOutbound": 131072,
+        "Streams": 262144,
+        "ConnsInbound": 128,
+        "ConnsOutbound": 64,
+        "Conns": 256,
+        "FD": 8192
+      },
+      "TransientLimitConfig": {
+        "StreamsInbound": 2048,
+        "StreamsOutbound": 4096,
+        "Streams": 4096,
+        "ConnsInbound": 128,
+        "ConnsOutbound": 64,
+        "Conns": 128,
+        "FD": 1024
+      }
+    },
+    "ConnectionManagerConfig": {
+      "HighWater": 128,
+      "LowWater": 64
+    }
+  },
+  "JaegerConfig": {
+    "EnableTracing": false,
+    "ProviderUrl": "",
+    "SamplerRatio": 1
+  },
+  "ContentConfig": {},
+  "LoggingConfig": {
+    "ApiEndpointLogging": true
+  },
+  "EstuaryConfig": {
+    "Api": "estuary-api.softwareplumbers.com",
+    "Handle": "SHUTTLE7261fad3-2127-457f-81dd-ff7632025cc8HANDLE",
+    "AuthToken": "SECRET16750cd2-a4af-4672-920f-e660f2b9086aSECRET"
+  }
+}

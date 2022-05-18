@@ -1,0 +1,74 @@
+{
+  "DatabaseConnString": "postgres=host=postgres13 user=estuary password=swallow99 dbname=estuary",
+  "StagingDataDir": "/data/estuary/stagingdata",
+  "DataDir": "/data/estuary",
+  "ApiListen": "0.0.0.0:3004",
+  "AutoRetrieve": false,
+  "LightstepToken": "",
+  "Hostname": "estuary-api.softwareplumbers.com",
+  "NodeConfig": {
+    "Swarm": [
+      "/ip4/0.0.0.0/tcp/6744"
+    ],
+    "Announce": [
+      "/ip4/208.104.26.93/tcp/6744"
+    ],
+    "BlockstoreDir": "/data/estuary/estuary-blocks",
+    "WriteLogDir": "",
+    "HardFlushWriteLog": false,
+    "WriteLogTruncate": false,
+    "NoBlockstoreCache": false,
+    "NoLimiter": false,
+    "Libp2pKeyFile": "/data/estuary/estuary-peer.key",
+    "DatastoreDir": "/data/estuary/estuary-leveldb",
+    "WalletDir": "/data/estuary/estuary-wallet",
+    "BitswapConfig": {
+      "MaxOutstandingBytesPerPeer": 0,
+      "TargetMessageSize": 0
+    },
+    "LimitsConfig": {
+      "SystemLimitConfig": {
+        "MinMemory": 1073741824,
+        "MaxMemory": 10737418240,
+        "MemoryFraction": 0.2,
+        "StreamsInbound": 65536,
+        "StreamsOutbound": 131072,
+        "Streams": 262144,
+        "ConnsInbound": 64,
+        "ConnsOutbound": 64,
+        "Conns": 256,
+        "FD": 8192
+      },
+      "TransientLimitConfig": {
+        "StreamsInbound": 2048,
+        "StreamsOutbound": 4096,
+        "Streams": 4096,
+        "ConnsInbound": 64,
+        "ConnsOutbound": 64,
+        "Conns": 256,
+        "FD": 1024
+      }
+    },
+    "ConnectionManagerConfig": {
+      "HighWater": 128,
+      "LowWater": 64
+    }
+  },
+  "JaegerConfig": {
+    "EnableTracing": false,
+    "ProviderUrl": "http://localhost:14268/api/traces",
+    "SamplerRatio": 1
+  },
+  "DealConfig": {
+    "FailOnTransferFailure": true
+  },
+  "ContentConfig": {
+    "DisableLocalAdding": false
+  },
+  "LowMem": false,
+  "DisableFilecoinStorage": false,
+  "Replication": 3,
+  "LoggingConfig": {
+    "ApiEndpointLogging": true
+  }
+}
