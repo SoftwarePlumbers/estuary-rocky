@@ -1,7 +1,7 @@
 {
-  "DatabaseConnString": "postgres=host=postgres13 user=estuary password=swallow99 dbname=estuary",
-  "StagingDataDir": "/data/estuary/stagingdata",
-  "DataDir": "/data/estuary",
+  "DatabaseConnString": "postgres=host=postgres user=estuary password=swallow99 dbname=postgres",
+  "StagingDataDir": "/data/stagingdata",
+  "DataDir": "/data",
   "ApiListen": "0.0.0.0:3004",
   "AutoRetrieve": false,
   "LightstepToken": "",
@@ -13,15 +13,15 @@
     "Announce": [
       "/ip4/208.104.26.93/tcp/6744"
     ],
-    "BlockstoreDir": "/data/estuary/estuary-blocks",
+    "BlockstoreDir": "/data/estuary-blocks",
     "WriteLogDir": "",
     "HardFlushWriteLog": false,
     "WriteLogTruncate": false,
     "NoBlockstoreCache": false,
     "NoLimiter": false,
-    "Libp2pKeyFile": "/data/estuary/estuary-peer.key",
-    "DatastoreDir": "/data/estuary/estuary-leveldb",
-    "WalletDir": "/data/estuary/estuary-wallet",
+    "Libp2pKeyFile": "/data/estuary-peer.key",
+    "DatastoreDir": "/data/estuary-leveldb",
+    "WalletDir": "/data/estuary-wallet",
     "BitswapConfig": {
       "MaxOutstandingBytesPerPeer": 0,
       "TargetMessageSize": 0
