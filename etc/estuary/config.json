@@ -5,13 +5,13 @@
   "ApiListen": "0.0.0.0:3004",
   "AutoRetrieve": false,
   "LightstepToken": "",
-  "Hostname": "estuary-api.softwareplumbers.com",
+  "Hostname": "estuary-api-dev.softwareplumbers.com",
   "NodeConfig": {
     "Swarm": [
       "/ip4/0.0.0.0/tcp/6744"
     ],
     "Announce": [
-      "/ip4/208.104.26.93/tcp/6744"
+      "/ip4/208.104.26.49/tcp/6744"
     ],
     "BlockstoreDir": "/data/estuary-blocks",
     "WriteLogDir": "",

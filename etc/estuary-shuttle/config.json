@@ -1,10 +1,9 @@
 {
-  "DatabaseConnString": "postgres=host=postgres13 user=estuary password=swallow99 dbname=shuttle",
-  "StagingDataDir": "/data/shuttle/staging",
-  "DataDir": "/data/shuttle",
-  "ApiListen": "10.0.3.8:3005",
+  "StagingDataDir": "/data/staging",
+  "DataDir": "/data",
+  "ApiListen": "0.0.0.0:3005",
   "AutoRetrieve": false,
-  "Hostname": "https://shuttle1.softwareplumbers.com",
+  "Hostname": "https://shuttle-dev1.softwareplumbers.com",
   "Private": false,
   "Dev": false,
   "NoReloadPinQueue": false,
@@ -15,18 +14,18 @@
       "/ip4/0.0.0.0/tcp/6747/ws"
     ],
     "Announce": [
-      "/ip4/208.104.26.93/tcp/6745",
-      "/ip4/208.104.26.93/udp/6746/quic",
-      "/ip4/208.104.26.93/tcp/6747/ws"],
-    "BlockstoreDir": "/data/shuttle/blocks",
+      "/ip4/208.104.26.49/tcp/6745",
+      "/ip4/208.104.26.49/udp/6746/quic",
+      "/ip4/208.104.26.49/tcp/6747/ws"],
+    "BlockstoreDir": "/data/blocks",
     "WriteLogDir": "",
     "HardFlushWriteLog": false,
     "WriteLogTruncate": false,
     "NoBlockstoreCache": false,
     "NoLimiter": false,
-    "Libp2pKeyFile": "/data/shuttle/peer.key",
-    "DatastoreDir": "/data/shuttle/leveldb",
-    "WalletDir": "/data/shuttle/wallet",
+    "Libp2pKeyFile": "/data/peer.key",
+    "DatastoreDir": "/data/leveldb",
+    "WalletDir": "/data/wallet",
     "BitswapConfig": {
       "MaxOutstandingBytesPerPeer": 5242880,
       "TargetMessageSize": 16384
@@ -69,8 +68,8 @@
     "ApiEndpointLogging": true
   },
   "EstuaryConfig": {
-    "Api": "estuary-api.softwareplumbers.com",
-    "Handle": "SHUTTLE7261fad3-2127-457f-81dd-ff7632025cc8HANDLE",
-    "AuthToken": "SECRET16750cd2-a4af-4672-920f-e660f2b9086aSECRET"
+    "Api": "estuary-api-dev.softwareplumbers.com",
+    "Handle": "",
+    "AuthToken": ""
   }
 }

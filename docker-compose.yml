@@ -15,8 +15,13 @@ services:
   init-estuary:
     build: .
     command: init
+    environment:
+      - ESTUARY_ANNOUNCE=/ip4/${ESTUARY_EXTERNAL_IP}/tcp/8744
+      - ESTUARY_HOSTNAME=api-${EXTERNAL_NAME_STUB}
     volumes:
       - estuary-data:/data
+      - shuttle-config:/etc/estuary-shuttle
+      - estuary-config:/etc/estuary
     depends_on:
       postgres:
         condition: service_healthy
@@ -25,11 +30,57 @@ services:
     command: estuary
     volumes:
       - estuary-data:/data
+      - estuary-config:/etc/estuary
+    ports:
+      - 3004:3004
+      - 8744:8744
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3004/health || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5         
     depends_on:
       init-estuary:
         condition: service_completed_successfully
+  register-shuttle:
+    build: .
+    command: register
+    environment:
+      - SHUTTLE_ANNOUNCE=/ip4/${ESTUARY_EXTERNAL_IP}/tcp/8745
+      - SHUTTLE_HOSTNAME=https://shuttle-1-api-${EXTERNAL_NAME_STUB}
+      - ESTUARY_HOSTNAME=https://api-${EXTERNAL_NAME_STUB}
+      - SHUTTLE_OPTS=--announce-addr=/ip4/${ESTUARY_EXTERNAL_IP}/udp/8746/quic --announce-addr=/ip4/${ESTUARY_EXTERNAL_IP}/tcp/8747/ws
+    volumes:
+      - shuttle-data:/data
+      - shuttle-config:/etc/estuary-shuttle
+    depends_on:
+      estuary:
+        condition: service_healthy
+  shuttle:
+    build: .
+    command: estuary-shuttle
+    volumes:
+      - shuttle-data:/data
+      - shuttle-config:/etc/estuary-shuttle
+    ports:
+      - 3005:3005
+      - 8745:8745
+      - 8746:8746/udp
+      - 8747:8747
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3005/health || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5         
+    depends_on:
+      register-shuttle:
+        condition: service_completed_successfully        
+
 
 volumes:
-  estuary-data:
   db-data:
+  estuary-data:
+  estuary-config:
+  shuttle-data:
+  shuttle-config:
 
